@@ -7,7 +7,7 @@ ReactDOM.render(<Todolist />, document.getElementById('root'));
 /*
 本案例 主要是todo功能的进一步扩展 借助了解 redux的在react中的配合
  
-redux 一个独立的状态管理库，可配合其他框架使用，
+redux 一个独立的状态管理库，可配合其他框架使用，在react中主要是解决数据传递
 引入Redux主要为了使JavaScript中数据管理的方便，易追踪，
 避免在大型的JavaScript应用中数据状态的使用混乱情况
 
@@ -40,11 +40,11 @@ redux基本概念
     而监听函数可以获取已经更新过的state数据了
 
 redux设计原则
-1 单一数据原则
+1 单一数据原则 store必须是唯一的，只有一个
 
-2 state只读
+2 state只读 ，只有store能改变自己的内容，reducer中返回一个新的数据，在store中修改
 
-3 使用纯函数
+3 使用纯函数，指给一个固定的输入，就一定有一个固定的输出，而且不会有副作用，如reducer里便有ajax获取new date 操作都不算纯函数
 
 参考 https://www.redux.org.cn/
     */
