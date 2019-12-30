@@ -1,4 +1,4 @@
-import {INPUT_CHANGE,LIST_ADD,LIST_DEL} from './todoTypes'
+import {INPUT_CHANGE,LIST_ADD,LIST_DEL,INIT_LIST_DATA} from './todoTypes'
 
 const inputChange = (value)=>({
     type:INPUT_CHANGE,
@@ -15,10 +15,16 @@ const listDel = (value)=>({
     value
 })
 
+const initList = (value)=>({
+    type:INIT_LIST_DATA,
+    value
+})
+
 export {
     inputChange,
     listAdd,
-    listDel
+    listDel,
+    initList
 }
 
 //创建一个action的操作统一

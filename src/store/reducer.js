@@ -20,6 +20,9 @@ export default (state=defaultState,action) => {
         case 'LIST_DEL':
             newState.list.splice(action.value,1);
             return newState;
+        case 'INIT_LIST_DATA':
+            newState.list = action.value;
+            return newState;
         default:
             return state
     }
