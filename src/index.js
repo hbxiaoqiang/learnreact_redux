@@ -54,4 +54,12 @@ redux设计原则
  Ant Design 还有其他包装，包括移动UI库Ant Design Mobile（mobile和native）
  //除了Ant Design的 还有其他各种UI库（而且各有优劣，数量多到足够刷新你三观），并且基本上都可以应用到各种构建用户界面的js库（react，vue，ag）
  // 后面再整理一下大致可以在项目中应用的ui库
+
+ redux中间件
+  最基础redux的流程，view通过store派发（dispatch）一个action数据，stroe连同之前的state和action传给reducer，reducer处理后将新的
+  state返回给view；action要求必须是一个对象，这个过程是同步的；
+  中间件其实就是在dispatch上加了一个升级，可以对其他类型数据做处理，比如redux-thunk，传递的是一个函数的话，就不直接传递给store而是执行函数
+  中间件不仅有redux-thunk ，还有其他redux-logger，redux-saga（也是解决异步的）
+  redux-saga 不同于redux-thunk把异步放在action ，是单独放在另一个文件管理
+  redux-thunk ,redux-saga 二选一就行了
 */

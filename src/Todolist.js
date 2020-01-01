@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { store } from './store/index.js'; 
-import {inputChange,listAdd,initList} from './store/todoAction';
+import {inputChange,listAdd,initListData} from './store/todoAction';
 import TodolistUI from './TodolistUI';
-import axios from 'axios';
+//import axios from 'axios';
 
 class Todolist extends Component {
     constructor(props) {
@@ -28,10 +28,12 @@ class Todolist extends Component {
     }
 
     componentDidMount(){
-        let url = 'https://www.easy-mock.com/mock/5e0a0d18cdc33866251c4a9f/example';
-        axios.get(url+'/list').then((data)=>{
-            store.dispatch(initList(data.data.list))
-        })
+        // let url = 'https://www.easy-mock.com/mock/5e0a0d18cdc33866251c4a9f/example';
+        // axios.get(url+'/list').then((data)=>{
+        //     store.dispatch(initList(data.data.list))
+        // })
+        store.dispatch(initListData())
+        //直接dispath一个给store,必须要用redux-thunk,不然会报错
     }
 
     handleInputChange(e){
