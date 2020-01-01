@@ -1,3 +1,4 @@
+/*
 import { createStore,applyMiddleware,compose } from 'redux';// 先创建一个数据的公共存储仓库,
 import thunk from 'redux-thunk'; 
 import reducer from './reducer';
@@ -24,5 +25,23 @@ const enhancer = composeEnhancers(
 const store = createStore(reducer,
   enhancer
     );
+
+export { store };
+//以上是redux-thunk中间见使用
+*/
+//以下是redux-saga中间件使用
+import { createStore,applyMiddleware,compose } from 'redux';
+import createSagaMiddleware from 'redux-saga' // 引入saga创建模块，需要使用 redux-saga 中间件将 Saga 与 Redux Store 建立连接
+import reducer from './reducer';
+import todoSaga from './sagas';//需要创建一个saga.js文件
+
+const sagaMiddleware = createSagaMiddleware() 
+
+const store = createStore(
+  reducer,
+  compose(applyMiddleware(sagaMiddleware))
+)
+
+sagaMiddleware.run(todoSaga) // 需要执行run，这点事与redux-thunk不同的地方
 
 export { store };
