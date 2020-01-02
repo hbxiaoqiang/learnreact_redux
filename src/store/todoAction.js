@@ -1,4 +1,4 @@
-import {INPUT_CHANGE,LIST_ADD,LIST_DEL,INIT_LIST_DATA} from './todoTypes'
+import {INPUT_CHANGE,LIST_ADD,LIST_DEL,INIT_LIST_DATA,GET_INIT_LIST} from './todoTypes'
 import axios from 'axios';
 const inputChange = (value)=>({
     type:INPUT_CHANGE,
@@ -36,12 +36,19 @@ const initListData=()=>{
     这个如果是个函数 他会帮你处理执行，返回函数自动会接收到dispatch，
     其实最大好处 就是把异步代码进一步分离出来，让组件更纯
  */
+
+ const getInitList =()=>{
+     return {
+         type:GET_INIT_LIST
+     }
+ }
 export {
     inputChange,
     listAdd,
     listDel,
     initList,
-    initListData
+    initListData,
+    getInitList
 }
 
 //创建一个action的操作统一

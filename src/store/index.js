@@ -33,13 +33,13 @@ export { store };
 import { createStore,applyMiddleware,compose } from 'redux';
 import createSagaMiddleware from 'redux-saga' // 引入saga创建模块，需要使用 redux-saga 中间件将 Saga 与 Redux Store 建立连接
 import reducer from './reducer';
-import todoSaga from './sagas';//需要创建一个saga.js文件
+import todoSaga from './ sagas';//需要创建一个saga.js文件
 
 const sagaMiddleware = createSagaMiddleware() 
 
 const store = createStore(
   reducer,
-  compose(applyMiddleware(sagaMiddleware))
+  applyMiddleware(sagaMiddleware)
 )
 
 sagaMiddleware.run(todoSaga) // 需要执行run，这点事与redux-thunk不同的地方

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { store } from './store/index.js'; 
-import {inputChange,listAdd,initListData} from './store/todoAction';
+import {inputChange,listAdd,initListData,getInitList} from './store/todoAction';
 import TodolistUI from './TodolistUI';
 //import axios from 'axios';
 
@@ -32,8 +32,12 @@ class Todolist extends Component {
         // axios.get(url+'/list').then((data)=>{
         //     store.dispatch(initList(data.data.list))
         // })
+        /*
         store.dispatch(initListData())
         //直接dispath一个给store,必须要用redux-thunk,不然会报错
+        */
+        const action = getInitList();
+        store.dispatch(action);
     }
 
     handleInputChange(e){
